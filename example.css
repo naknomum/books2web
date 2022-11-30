@@ -1,0 +1,83 @@
+body {
+    font-family: arial;
+    font-size: 1em;
+}
+
+
+.books2web-table {
+    border: none;
+    border-spacing: 0;
+    cursor: cell;
+}
+
+.books2web-key-num {
+    text-align: right;
+    padding-right: 10px !important;
+    font-size: 0.6em;
+    color: #666;
+}
+
+.books2web-key-title {
+    font-style: oblique;
+    font-weight: bold;
+}
+
+.books2web-parity-odd {
+    background-color: #EEE;
+}
+
+.books2web-row.books2web-parity-odd:hover {
+    background-color: #EEC;
+}
+.books2web-row.books2web-parity-even:hover {
+    background-color: #FFD;
+}
+
+.books2web-col {
+    padding: 3px 2px;
+}
+.books2web-col:hover {
+    outline: solid 1px #444;
+}
+
+.books2web-key-summary {
+    max-width: 25em;
+    max-height: 1.6em;
+    overflow: hidden;
+    display: inline-block;
+    position: relative;
+}
+.books2web-key-summary:hover {
+    overflow: visible;
+    max-height: none;
+    position: absolute;
+    font-size: 0.7em !important;
+    z-index: 100;
+    background-color: #EEF;
+}
+.books2web-key-summary.books2web-data {
+    font-size: 0.6em;
+}
+
+.books2web-key-published-date,
+.books2web-key-publisher,
+.books2web-key-isbn,
+.books2web-key-pages
+{
+    font-size: 0.8em;
+}
+
+.books2web-key-isbn {
+    color: #666;
+}
+
+
+/* some we dont care to see */
+.books2web-key-cover-path,
+.books2web-key-read,
+.books2web-key-reading-periods,
+.books2web-key-series,
+.books2web-key-comments
+{
+    display: none;
+}
