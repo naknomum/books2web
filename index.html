@@ -1,0 +1,30 @@
+<html>
+	<head>
+		<script src="books.js"></script>
+		<link rel="stylesheet" href="example.css">
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/list.js/2.3.1/list.min.js"></script>
+<script>
+var userList;
+function fancy() {
+    var options = {
+      valueNames: [
+				'books2web-key-authors',
+				'books2web-key-title'
+			]
+    };
+
+    userList = new List('books-table', options);
+}
+</script>
+	</head>
+	<body onLoad="initBooks(fancy)">
+		<input class="search" type="search" placeholder="Search" oninput="searchChange(this);" />
+		<button class="sort" data-sort="books2web-key-authors">sort by author</button>
+		<button class="sort" data-sort="books2web-key-title">sort by title</button>
+
+		<div id="books-table">
+						<table class="books2web-table"></table>
+		</div>
+	</body>
+</html>

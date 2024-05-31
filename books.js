@@ -1,14 +1,19 @@
 var bookData;
 const prefix = 'books2web-';
 
-function initBooks() {
+function initBooks(callback) {
     fetch('books.json')
         .then((resp) => resp.json())
-        .then((data) => gotBookJson(data));
+        .then((data) => gotBookJson(data, callback));
 }
 
 
-function gotBookJson(json) {
+function searchChange(el) {
+    let value = el.value;
+    userList.search(value);
+}
+
+function gotBookJson(json, callback) {
     bookData = json;
     json.keys.splice(0, 0, '#');
     let tableEl = document.getElementsByTagName('table')[0];
@@ -27,6 +32,8 @@ function gotBookJson(json) {
     }
     tableEl.appendChild(tr);
 
+    let tb = document.createElement('tbody');
+    tb.classList.add(prefix + 'tbody', 'list');
     for (let j = 0 ; j < json.data.length ; j++) {
         let tr = document.createElement('tr');
         tr.classList.add(prefix + 'data', prefix + 'row', prefix + 'row-' + j, prefix + 'parity-' + (j % 2 ? 'even' : 'odd'));
@@ -37,6 +44,8 @@ function gotBookJson(json) {
             td.innerHTML = json.data[j][i];
             tr.appendChild(td);
         }
-        tableEl.appendChild(tr);
+        tb.appendChild(tr);
     }
+    tableEl.appendChild(tb);
+    if (callback) callback();
 }
